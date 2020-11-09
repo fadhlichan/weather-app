@@ -19,10 +19,12 @@ const mutations = {
     }
 }
 const actions = {
+    // Get weather data
     getWeather: async function({ state, commit, dispatch }) {
         state.data = null;
         state.recently = null;
         state.error = null;
+        // Make delay to show loading display
         setTimeout(async function() {
             var req = await fetch(`${ API_WEATHER }?q=${ state.city }&appid=${ KEY }`);
             var res = await req.json();
@@ -35,6 +37,7 @@ const actions = {
             }
         }, 1000)
     },
+    // Get forecast data
     getRecently: async function({ state }) {
         var req = await fetch(`${ API_FORECAST }?q=${ state.city }&appid=${ KEY }`);
         var res = await req.json();
