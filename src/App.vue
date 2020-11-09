@@ -4,28 +4,36 @@
       <search-box />
       <div class="main">
 
+        <!-- Show when weather data is ready -->
         <template v-if="$store.state.weather.data">
           <display-main :weather-data="$store.state.weather.data" />
           <display-details :weather-data="$store.state.weather.data" />
         </template>
 
+        <!-- Show when fetching data (weather) -->
         <template v-if="!$store.state.weather.data">
           <Error />
           <load-main />
           <load-details />
         </template>
         
+        <!-- Show when forecast data is ready -->
         <template v-if="$store.state.weather.recently">
           <display-forecasts :weather-data="$store.state.weather.recently" />
         </template>
         
+        <!-- Show when fetching data (forecast) -->
         <template v-if="!$store.state.weather.recently">
           <load-forecasts />
         </template>
         
       </div>
     </div>
-    <a href="https://github.com/fadhlisy/weather-app" target="_blank" title="GitHub Repository"><img src="./assets/icons/github-2.png" class="animate-bounce fixed right-0 bottom-0 w-20 h-20 m-5"/></a>
+    
+    <!-- Link to this repository -->
+    <a href="https://github.com/fadhlisy/weather-app" target="_blank" title="GitHub Repository">
+      <img src="./assets/icons/github-2.png" class="animate-bounce fixed right-0 bottom-0 w-20 h-20 m-5"/>
+     </a>
   </div>
 </template>
 
