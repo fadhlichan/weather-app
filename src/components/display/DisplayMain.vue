@@ -1,6 +1,6 @@
 <template>
     <div class="md:w-2/5 w-full">
-        <div class="relative">
+        <div class="z-0 relative">
             <div>
                 <p>{{ time }}</p>
                 <p class="text-2xl font-bold">{{ WeatherData.name }}, {{WeatherData.sys.country }}</p>
