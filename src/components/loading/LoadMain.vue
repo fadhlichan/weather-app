@@ -1,6 +1,6 @@
 <template>
     <div class="md:w-2/5 w-full" :class="{ 'animate-pulse': !$store.state.weather.error }">
-        <div class="relative">
+        <div class="z-0 relative">
             <div>
                 <div class="h-4 w-32 bg-gray-400 rounded mb-2"></div>
                 <div class="h-6 w-32 bg-gray-400 rounded mb-2"></div>
