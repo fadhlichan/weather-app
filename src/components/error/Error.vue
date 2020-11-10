@@ -15,7 +15,7 @@ export default {
 
 <style lang="postcss">
 .error-body {
-    @apply mx-auto mt-8 absolute left-0 right-0
+    @apply mx-auto mt-8 absolute left-0 right-0 z-10
 }
 
 .error-icon {
