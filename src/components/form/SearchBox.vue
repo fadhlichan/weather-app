@@ -1,7 +1,9 @@
 <template>
-    <div class="sm:mb-5 flex relative">
-        <input-txt classes="inp-text" :value="city"  placeholder="Enter your location..." @inputed="monitoring($event)" @entered="process"/>
-        <input-btn classes="btn" @clicked="process"/>
+    <div class="fixed sm:static z-20 w-full">
+        <div class="sm:mb-5 flex relative">
+            <input-txt classes="inp-text" :value="city"  placeholder="Enter your location..." @inputed="monitoring($event)" @entered="process"/>
+            <input-btn classes="btn" @clicked="process"/>
+        </div>
     </div>
 </template>
 
