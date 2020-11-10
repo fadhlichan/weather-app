@@ -2,7 +2,7 @@
   <div id="app" class="weather-app">
     <div class="container m-auto">
       <search-box />
-      <div class="main">
+      <div class="main m-12 sm:m-0">
 
         <!-- Show when weather data is ready -->
         <template v-if="$store.state.weather.data">
