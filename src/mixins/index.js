@@ -57,7 +57,7 @@ export const WeatherComputed = {
                 this.celcius.active = false;
                 this.fahrenheit.active = true;
             } else if (this.$store.state.weather.default.unit === 'fahrenheit') {
-                this.$store.state.weather.unit = 'celcius';
+                this.$store.state.weather.default.unit = 'celcius';
                 this.celcius.active = true;
                 this.fahrenheit.active = false;
             }
