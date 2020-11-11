@@ -1,7 +1,13 @@
 <template>
     <div class="fixed sm:static z-20 w-full">
         <div class="sm:mb-5 flex relative">
-            <input-txt classes="inp-text" :value="city"  placeholder="Enter your location..." @inputed="monitoring($event)" @entered="process"/>
+            <input-txt
+                :classes="['inp-text', city.isEmpty ? 'placeholder-red-500' : '']"
+                :value="city.name"
+                :text.sync="city.name"
+                :placeholder="!city.isEmpty ? 'Enter your location...' : 'Please enter your location!'"
+                @entered="process"
+            />
             <input-btn classes="btn" @clicked="process"/>
         </div>
     </div>
@@ -16,15 +22,20 @@ export default {
     components: { InputTxt, InputBtn },
     data: function() {
         return {
-            city: ''
+            city: {
+                name: '',
+                isEmpty: false
+            }
         }
     },
     methods: {
-        monitoring: function(val) {
-            this.$store.state.weather.city = val;
-        },
         process: function() {
-            this.$store.dispatch('weather/getWeather');
+            if (this.city.name !== '') {
+                this.city.isEmpty = false;
+                this.$store.dispatch('weather/getWeather', this.city.name);
+            } else {
+                this.city.isEmpty = true
+            }
         }
     }
 }
