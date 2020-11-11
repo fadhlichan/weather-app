@@ -29,7 +29,7 @@ const actions = {
             var req = await fetch(`${ API_WEATHER }?q=${ city ? city : state.default.city }&appid=${ KEY }`);
             var res = await req.json();
             if (res.cod === 200) {
-                var recent = await dispatch('getRecently');
+                var recent = await dispatch('getRecently', city ? city : state.default.city);
                 commit('setData', res);
                 commit('setRecently', recent);
             } else {
