@@ -13,13 +13,13 @@ export const Form = {
             default: ''
         },
         classes: {
-            type: String,
+            type: [String, Array],
             required: true
         }
     },
     methods: {
         oninput: function(e) {
-            this.$emit('inputed', e.target.value);
+            this.$emit('update:text', e.target.value);
         },
         onenter: function() {
             this.$emit('entered');
@@ -52,11 +52,11 @@ export const WeatherComputed = {
     },
     methods: {
         switchTemp() {
-            if (this.$store.state.weather.unit === 'celcius') {
-                this.$store.state.weather.unit = 'fahrenheit';
+            if (this.$store.state.weather.default.unit === 'celcius') {
+                this.$store.state.weather.default.unit = 'fahrenheit';
                 this.celcius.active = false;
                 this.fahrenheit.active = true;
-            } else if (this.$store.state.weather.unit === 'fahrenheit') {
+            } else if (this.$store.state.weather.default.unit === 'fahrenheit') {
                 this.$store.state.weather.unit = 'celcius';
                 this.celcius.active = true;
                 this.fahrenheit.active = false;
@@ -69,7 +69,7 @@ export const WeatherComputed = {
         },
         temperature() {
             return (temp) => {
-                if (this.$store.state.weather.unit === 'celcius') {
+                if (this.$store.state.weather.default.unit === 'celcius') {
                     return this.toCelcius(temp)
                 }
                 return Math.floor(temp)
