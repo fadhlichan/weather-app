@@ -40,7 +40,7 @@ const actions = {
     getRecently: async function({ state }, city) {
         var req = await fetch(`${ API_FORECAST }?q=${ city ? city : state.default.city }&appid=${ KEY }`);
         var res = await req.json();
-        return res.list.splice(0, 8);
+        return res.list.splice(2, 8);
     }
 }
 
